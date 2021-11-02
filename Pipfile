@@ -10,6 +10,8 @@ six = "*"
 django-environ = "*"
 dj-database-url = "*"
 django-heroku = "*"
+psycopg2 = "*"
+whitenoise = "*"
 
 [dev-packages]
 
