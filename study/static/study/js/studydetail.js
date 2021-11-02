@@ -10,6 +10,7 @@ const likePost = () => {
         {
             method: 'POST', 
             body: JSON.stringify({}),
+            credentials: "same-origin",
             headers: { 
                 "X-CSRFToken": csrf[0].value,
                 "Content-Type": "application/json; charset=utf-8" 
