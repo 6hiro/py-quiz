@@ -4,13 +4,14 @@ from .views import (
     LoginView,
     LogoutView,
     VerificationView,
+    index,
 )
 from django.views.decorators.csrf import csrf_exempt
 
 app_name = 'account'
 
 urlpatterns = [
-    # path('', views.index, name="home"),
+    path('', index, name="home"),
     path('registration/', RegistrationView.as_view(),
          name="registration"),
     path('login/', LoginView.as_view(), name="login"),

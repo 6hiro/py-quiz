@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('account.urls', namespace='account')),
-    path('quizes', include('quizes.urls', namespace='quizes')),
-    path('study', include('study.urls', namespace='study')),
+    path('quizes/', include('quizes.urls', namespace='quizes')),
+    path('study/', include('study.urls', namespace='study')),
     path('markdownx/', include('markdownx.urls'))
 ]
 

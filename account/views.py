@@ -19,6 +19,10 @@ from django.contrib.auth import authenticate, get_user_model, login, logout
 from .utils import EmailUtil, account_activation_token
 
 
+def index(request):
+    return render(request, 'home.html')
+
+
 def registration(request):
     return render(request, 'account/registration.html')
 
