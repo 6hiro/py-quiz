@@ -1,0 +1,22 @@
+.quiz-title {
+  text-align: center;
+  color: #fff;
+  font-size: 28px;
+  padding: 10px 0 10px 0;
+}
+.back-to-list {
+  /* background: red; */
+  font-weight: 600;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  /* width: 150px; */
+  /* margin: 0 0 auto 0; */
+}
+.result-box .question {
+  font-size: 25px;
+  font-weight: 600;
+}
+.result-box .answer {
+  font-size: 25px;
+}

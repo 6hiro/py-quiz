@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% load static %}
+<!--  -->
+{% block styles %}
+<link rel="stylesheet" href="{% static 'account/css/login.css' %}" />
+<link rel="stylesheet" href="{% static 'account/css/messages.css' %}" />
+{% endblock %}
+<!--  -->
+{% block title %}ログイン{% endblock %}
+<!--  -->
+{% block content %}
+<div class="card">
+  <div class="title">ログイン</div>
+  <form action="{% url 'account:login' %}" method="post">
+    {% csrf_token %}
+    <div class="form_group">
+      <div class="email">
+        <!-- <i class="bx bx-envelope"></i> -->
+        <input
+          type="email"
+          name="email"
+          placeholder="メールアドレス"
+          class="field"
+          id="emailField"
+          value="{{email}}"
+        />
+      </div>
+      <div class="password">
+        <!-- <i class="bx bx-lock"></i> -->
+        <input
+          type="password"
+          name="password"
+          placeholder="パスワード"
+          class="field"
+          id="passwordField"
+        />
+      </div>
+
+      <!-- message -->
+      {% include 'components/messages.html' %}
+      <span id="message"></span>
+
+      <button type="submit" class="btn">ログイン</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

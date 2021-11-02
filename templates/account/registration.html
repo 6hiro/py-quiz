@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+<!--  -->
+{% load static %}
+<!--  -->
+{% block styles %}
+<link rel="stylesheet" href="{% static 'account/css/registration.css' %}" />
+<link rel="stylesheet" href="{% static 'account/css/messages.css' %}" />
+{% endblock %}
+<!--  -->
+{% block scripts %} {% endblock %}
+<!--  -->
+{% block title %} {% endblock %}
+<!--  -->
+{% block content %}
+<div class="card">
+  <div class="title">アカウント登録</div>
+  <form action="{% url 'account:registration' %}" method="post">
+    {% csrf_token %}
+
+    <div class="form_group">
+      <div class="email">
+        <!-- <i class="bx bx-envelope"></i> -->
+        <input
+          type="email"
+          name="email"
+          placeholder="メールアドレス"
+          class="field"
+          id="emailField"
+          value="{{email}}"
+        />
+      </div>
+
+      <!-- <div class="email_feedback_area" style="display: none"></div> -->
+      <div class="password">
+        <!-- <i class="bx bx-lock"></i> -->
+        <input
+          type="password"
+          name="password"
+          placeholder="パスワード（7字以上）"
+          class="field"
+          id="passwordField"
+        />
+      </div>
+
+      <div class="password">
+        <!-- <i class="bx bx-lock"></i> -->
+        <input
+          type="password"
+          name="repassword"
+          placeholder="パスワード確認"
+          class="field"
+          id="repasswordField"
+        />
+      </div>
+
+      <!-- message -->
+      {% include 'components/messages.html' %}
+
+      <button type="submit" class="btn">登録</button>
+    </div>
+  </form>
+</div>
+
+<script src="{% static 'account/js/registration.js' %}"></script>
+
+{% endblock %}

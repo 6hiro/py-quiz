@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% load static %}
+<!-- css -->
+{% block styles %}
+<link rel="stylesheet" href="{% static 'quizes/css/quiz.css' %}" />
+{% endblock %}
+<!-- js -->
+{% block scripts %}
+<script src="{% static 'quizes/js/quiz.js' %}" defer></script>
+{% endblock scripts %}
+<!-- title -->
+{% block title %} {{obj.name}} {% endblock %}
+<!-- content -->
+{% block content %}
+
+<div>
+  <div class="quiz-title">
+    <b>{{obj.name}}</b>
+    <!-- <p>score to pass: {{obj.required_score_to_pass}}%</p> -->
+  </div>
+  <div class="col text-right" id="timer-box"></div>
+</div>
+
+<a href="{% url 'quizes:quiz-list'%}" class="back-to-list">
+  <i class="bx bx-chevrons-left"></i>一覧にもどる
+</a>
+
+<form id="quiz-form">
+  {% csrf_token %}
+  <div id="quiz-box"></div>
+  <button type="submit" class="btn">save</button>
+</form>
+<div id="score-box"></div>
+<div id="result-box"></div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% load static %}
+<!-- css -->
+{% block styles %}
+<link rel="stylesheet" href="{% static 'study/css/studylist.css' %}" />
+{% endblock %}
+<!-- js -->
+{% block scripts %}
+<!-- <script src="{% static 'quizes/js/quizlist.js' %}" defer></script> -->
+{% endblock scripts %}
+<!-- title -->
+{% block title %} 学習一覧 {% endblock %}
+<!-- html -->
+{% block content %}
+<div class="study-list">
+  <div class="study-list-title">Study List</div>
+  <hr />
+  {% for study in studies %}
+  <ul>
+    <li class="card">
+      <div class="date">
+        <div class="updated-at">
+          {% if study.created_at != study.updated_at %}
+          更新：{{study.updated_at}} {% endif %}
+        </div>
+
+        <div class="created-at">投稿：{{study.created_at}}</div>
+      </div>
+
+      <div class="title">{{study.title}}</div>
+
+      <div>
+        <a
+          href="{% url 'study:study-category' category=study.category %}"
+          class="category"
+        >
+          <i class="bx bx-category"></i>{{study.category}}
+        </a>
+      </div>
+
+      <div class="tag-list">
+        {% for tag in study.tags.all %}
+        <a href="{% url 'study:study-tag' tag=tag.name %}" class="tag">
+          #{{tag.name}}
+        </a>
+        {% endfor %}
+      </div>
+
+      <!-- <div>{{study.get_preview_content}}</div> -->
+      {{study.get_preview_content}}
+      <a href="{% url 'study:study-detail' pk=study.id %}">Read More</a>
+    </li>
+  </ul>
+  {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% load static %}
+<!-- css -->
+{% block styles %}
+<!-- <link rel="stylesheet" href="{% static 'quizes/css/quiz.css' %}" /> -->
+{% endblock %}
+<!-- js -->
+{% block scripts %}
+<!-- <script src="{% static 'quizes/js/quiz.js' %}" defer></script> -->
+{% endblock scripts %}
+<!-- title -->
+{% block title %} {% endblock %}
+<!-- content -->
+{% block content %}
+
+<a href="{% url 'quizes:quiz-list' %}" class="back-to-list">
+  <i class="bx bx-chevrons-left"></i>一覧にもどる
+</a>
+
+{% endblock %}

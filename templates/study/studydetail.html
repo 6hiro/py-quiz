@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% load static %}
+<!-- css -->
+{% block styles %}
+<link rel="stylesheet" href="{% static 'study/css/studydetail.css' %}" />
+{% endblock %}
+<!-- js -->
+{% block scripts %}
+<script src="{% static 'study/js/studydetail.js' %}" defer></script>
+{% endblock scripts %}
+<!-- title -->
+{% block title %} {{study.title}} {% endblock %}
+<!-- html -->
+{% block content %}
+
+<div class="study">
+  <div class="date">
+    <div class="updated-at">
+      {% if study.created_at != study.updated_at %} 更新：{{study.updated_at}}
+      {% endif %}
+    </div>
+
+    <div class="created-at">投稿：{{study.created_at}}</div>
+  </div>
+
+  <form class="good-button" id="good-button">
+    {% csrf_token %} {% if is_liked %}
+    <i class="bx bxs-like like" id="like" data-postid="{{study.id}}"></i>
+    {% else %}
+    <i class="bx bx-like like" id="like" data-postid="{{study.id}}"></i>
+    {% endif %}
+  </form>
+
+  <div class="text">{{study.get_text_markdownx | safe}}</div>
+
+  <a href="{% url 'study:study-list' %}">一覧へ</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% load static %}
+<div class="menu">
+  <ul>
+    <li class="list">
+      <a href="#">
+        <span class="icon">
+          <i class="bx bx-home"></i>
+        </span>
+        <span class="text">ホーム</span>
+      </a>
+    </li>
+    <li class="list">
+      <a href="{% url 'quizes:quiz-list' %}">
+        <span class="icon">
+          <i class="bx bx-question-mark"></i>
+          <!-- <i class="bx bx-cog"></i> -->
+          <!-- <i class='bx bx-user-plus'></i> -->
+        </span>
+        <span class="text">クイズ</span>
+      </a>
+    </li>
+    <li class="list">
+      <a href="{% url 'study:study-list' %}">
+        <span class="icon">
+          <i class="bx bx-news"></i>
+          <!-- <i class="bx bx-message-rounded"></i> -->
+        </span>
+        <span class="text">学習</span>
+      </a>
+    </li>
+    {% if request.user.is_authenticated %}
+    <li class="list">
+      <a href="{% url 'account:logout' %}">
+        <span class="icon">
+          <i class="bx bx-log-out-circle"></i>
+        </span>
+        <span class="text">ログアウト</span>
+      </a>
+    </li>
+    <li class="list">
+      <a href="#">
+        <span class="icon">
+          <i class="bx bx-user"></i>
+        </span>
+        <span class="text">プロフィール</span>
+      </a>
+    </li>
+    {% else %}
+    <li class="list">
+      <a href="{% url 'account:login' %}">
+        <span class="icon">
+          <i class="bx bx-log-in-circle"></i>
+          <!-- <i class="bx bx-help-circle"></i> -->
+        </span>
+        <span class="text">ログイン</span>
+      </a>
+    </li>
+    <li class="list">
+      <a href="{% url 'account:registration' %}">
+        <span class="icon">
+          <i class="bx bx-user-plus"></i>
+        </span>
+        <span class="text">ユーザー登録</span>
+      </a>
+    </li>
+    {% endif %}
+
+    <!-- <div class="indicator"></div> -->
+  </ul>
+</div>

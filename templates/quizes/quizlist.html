@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% load static %}
+<!-- css -->
+{% block styles %}
+<link rel="stylesheet" href="{% static 'quizes/css/quizlist.css' %}" />
+{% endblock %}
+<!-- js -->
+{% block scripts %}
+<script src="{% static 'quizes/js/quizlist.js' %}" defer></script>
+{% endblock scripts %}
+<!-- title -->
+{% block title %} クイズ一覧 {% endblock %}
+<!-- html -->
+{% block content %}
+<!-- Modal -->
+<div class="modal">
+  <div class="content">
+    <div class="close-modal"><i class="bx bx-x"></i></div>
+    <div class="modal-body" id="modal-body"></div>
+    <button type="button" id="start-quiz-button" class="start-quiz-button">
+      スタート
+    </button>
+  </div>
+</div>
+
+<div class="quiz-list-title">Quiz List</div>
+<hr />
+
+{% for obj in object_list %}
+<div
+  class="open-modal"
+  data-pk="{{obj.pk}}"
+  data-quiz="{{obj.name}}"
+  data-questions="{{obj.number_of_questions}}"
+  data-difficulty="{{obj.difficulty}}"
+  data-time="{{obj.time}}"
+  data-pass="{{obj.required_score_to_pass}}"
+>
+  <i class="bx bxs-right-arrow"></i>
+  {{obj.name}}
+</div>
+{% endfor %} {% endblock %}

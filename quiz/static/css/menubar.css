@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  min-height: 100vh;
+  background: #444;
+}
+.menu {
+  background: #333;
+  position: fixed;
+  width: 350px;
+  height: 70px;
+  bottom: 1px;
+  border-radius: 50px;
+  /* postion: fixed;で中央に要素を配置 */
+  left: 50%;
+  transform: translate(-50%);
+}
+.menu ul {
+  display: flex;
+}
+.menu ul li {
+  position: relative;
+  list-style: none;
+  width: 70px;
+  height: 70px;
+  z-index: 100;
+}
+.menu ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+}
+.menu ul li a .icon {
+  position: relative;
+  line-height: 75px;
+  transition: 0.3s;
+  font-size: 30px;
+}
+.menu ul li:hover a .icon {
+  font-size: 20px;
+  transform: translateY(-6px);
+}
+.menu ul li a .text {
+  position: absolute;
+  font-size: 10px;
+  color: #fff;
+  bottom: 20px;
+  font-weight: 400;
+  transition: 0.2s;
+  transform: scale(0);
+}
+.menu ul li:hover a .text {
+  transform: scale(1);
+}
+.menu ul li:nth-child(1):hover {
+  background: #f53b57;
+  box-shadow: 0 8px 18px #f53b5799;
+  border-radius: 50px 0 0 50px;
+}
+.menu ul li:nth-child(2):hover {
+  background: #ffa801;
+  box-shadow: 0 8px 18px #ffa80199;
+}
+.menu ul li:nth-child(3):hover {
+  background: #05c46b;
+  box-shadow: 0 8px 18px #05c46b99;
+}
+.menu ul li:nth-child(4):hover {
+  background: #0fbcf9;
+  box-shadow: 0 8px 18px #0fbcf999;
+}
+.menu ul li:nth-child(5):hover {
+  background: #5d62fb;
+  box-shadow: 0 8px 18px #5d62fb99;
+  border-radius: 0 50px 50px 0;
+}
