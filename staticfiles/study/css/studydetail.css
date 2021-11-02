@@ -1,0 +1,35 @@
+.study {
+  padding: 15px;
+  background: #fff;
+  margin-bottom: 75px;
+}
+.study .date {
+  display: flex;
+  justify-content: space-between;
+  color: #777;
+  font-size: 12px;
+}
+.study .text pre {
+  padding: 5px;
+  border-radius: 2px;
+  background: #eee;
+}
+.study .toc li {
+  background: #ddd;
+  /* text-decoration: none; */
+  list-style: none;
+  padding: 15px;
+}
+.study .toc a {
+  text-decoration: none;
+  color: #000;
+}
+.study .good-button {
+  text-align: right;
+  margin: 10px;
+}
+.study .good-button .bxs-like {
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
+}
